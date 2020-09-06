@@ -1,0 +1,1665 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input {
+  outline: none;
+}
+a {
+  color: #000;
+}
+/*-----------------------------------------------------Nav bar-----------------------------------*/
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(97, 97, 97);
+}
+.nav-bar h1 {
+  margin-left: 7vw;
+  align-self: center;
+}
+.nav-bar ul {
+  list-style: none;
+  display: flex;
+  margin: 30px 0;
+  margin-right: 7vw;
+}
+a {
+  text-decoration: none;
+}
+.nav-bar ul li {
+  margin-left: 20px;
+}
+.nonactive {
+  padding: 2px 0px 2px 0px;
+  margin: 0 10px 10px 10px;
+  font-weight: 500;
+  color: white;
+}
+.active,
+.nonactive:hover {
+  color: rgb(80, 255, 57);
+  border-bottom: 2px solid red;
+  padding-bottom: 8px;
+}
+/*-------------------------------------------------------home page------------------------------------------*/
+.img-wraper {
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(7, 71px);
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 500px;
+  position: relative;
+  grid-template-areas:
+    ". . . . . . . . . . . ."
+    ". . . . t t t t . . . ."
+    ". . . . . . . . . i i i"
+    ". . . . s s s s sb i i i"
+    ". . . . . . . . . i i i"
+    ". . . . . . . . . i i i"
+    ". . . . . . . . . i i i";
+}
+.main-img {
+  height: 500px;
+  width: 100%;
+  z-index: 0;
+  position: absolute;
+}
+.home-text {
+  z-index: 1;
+  position: absolute;
+  font-size: 35px;
+  grid-area: t;
+  font-weight: 700;
+  color: rgb(255, 0, 0);
+  margin-left: 40px;
+  text-align: center;
+}
+.search-input {
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+  grid-area: s;
+  font-size: 25px;
+  margin-top: 30px;
+  font-weight: 500;
+}
+.search-btn-main {
+  z-index: 1;
+  background: url(./Assets/search1.png) no-repeat;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 50px;
+  width: 50px;
+  margin-top: 30px;
+  grid-area: sb;
+}
+.man-img {
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  grid-area: i;
+}
+.card-img {
+  width: 320px;
+  height: 300px;
+  padding: 15px;
+}
+.card-wraper {
+  width: 320px;
+  height: 420px;
+  text-align: center;
+  border-radius: 10px;
+  background: #ffffff;
+  color: rgb(97, 97, 97);
+  box-shadow: 0px 0px 15px 1px #d4d4d4;
+}
+.card-wraper:hover {
+  box-shadow: 0px 0px 20px 5px #dfdfdf;
+  transition: ease 0.7s;
+  transform: scale(1.02, 1.02);
+}
+.cards-wraper {
+  display: flex;
+  justify-content: space-evenly;
+  height: 600px;
+  align-items: center;
+}
+footer {
+  text-align: center;
+  color: black;
+  height: 50px;
+  background: rgb(172, 171, 171);
+  padding: 15px;
+}
+/*-------------------------------------------------BUY-------------------------------------------------*/
+.buy-page {
+  background: #797979;
+}
+.search-paramaters {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  padding: 10px 0;
+}
+.search-paramaters-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50vw;
+}
+.search-input-buy-page > input {
+  height: 35px;
+  font-weight: 550;
+  position: relative;
+  padding: 10px;
+  width: 270px;
+  box-shadow: 0px 0px 8px 0px inset #999595;
+}
+.search-input-buy-page {
+  height: 35px;
+  width: 270px;
+  margin-left: 4vw;
+}
+.search-paramaters-wrapper button {
+  height: 35px;
+  width: 105px;
+  font-weight: 550;
+  padding: 0 5px 0 5px;
+  background: rgb(255, 255, 255);
+  color: #000;
+  border-radius: 4px;
+  border: 1.2px solid rgb(83, 83, 83);
+}
+.activeBtn,
+.search-paramaters-wrapper button:hover {
+  font-weight: 600;
+  background: rgb(39, 107, 196);
+  color: rgb(255, 255, 255);
+  border: 1.2px solid rgb(255, 0, 0);
+  cursor: pointer;
+}
+.search-icon {
+  position: relative;
+  top: -27px;
+  left: 240px;
+  z-index: 1;
+  cursor: pointer;
+}
+/*-------------------------------------------------popups of search bar------------------------------------------*/
+.purpose-wrapper {
+  z-index: 1;
+  position: absolute;
+  margin-top: 5px;
+}
+.price-wrapper {
+  z-index: 1;
+  margin-top: 5px;
+  position: absolute;
+}
+.rooms-wrapper {
+  z-index: 1;
+  margin-top: 5px;
+  position: absolute;
+}
+.type-wrapper {
+  z-index: 1;
+  margin-top: 5px;
+  position: absolute;
+}
+.more-wrapper {
+  z-index: 1;
+  margin-top: 5px;
+  position: absolute;
+}
+.purpose-popup {
+  width: 150px;
+}
+.look {
+  background: rgb(196, 195, 195);
+  border: 1px solid rgb(0, 0, 0);
+  padding: 15px 15px 15px 0;
+  position: relative;
+}
+.look::after {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-top: 1px solid rgb(0, 0, 0);
+  border-right: 0px solid rgb(0, 0, 0);
+  border-bottom: 0px solid rgb(0, 0, 0);
+  border-left: 1px solid rgb(0, 0, 0);
+  top: 11px;
+  left: 55px;
+  margin-left: -20px;
+  margin-top: -20px;
+  content: "";
+  transform: rotate(45deg);
+  background: rgb(196, 195, 195);
+}
+.purpose-popup input {
+  height: 14px;
+  width: 14px;
+  margin: 15px 10px 0 15px;
+}
+.purpose-popup label {
+  font-size: 18px;
+  font-weight: 600;
+}
+.price-popup input {
+  width: 110px;
+  height: 35px;
+  margin-left: 10px;
+}
+.price-popup label {
+  font-weight: 600;
+  margin: 0 0 10px 10px;
+}
+.look button {
+  height: 35px;
+  width: 85px;
+  color: rgb(255, 0, 0);
+  background: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 20px 0px 0px 33%;
+}
+.rooms-popup input {
+  width: 110px;
+  height: 35px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.rooms-popup label {
+  font-weight: 600;
+  margin: 0 0 10px 10px;
+}
+.type-popup {
+  padding: 10px;
+  width: 150px;
+}
+.type-popup ul {
+  list-style: none;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.type-popup > ul > li {
+  margin: 5px 0 5px 0;
+  height: 35px;
+  width: 100px;
+  font-weight: 550;
+  padding: 4px 5px 0 5px;
+  background: rgb(255, 255, 255);
+  color: #000;
+  border-radius: 4px;
+  border: 1.2px solid rgb(83, 83, 83);
+}
+.type-popup > ul > ul > li {
+  margin: 5px 0 5px 15px;
+  width: 100px;
+  height: 35px;
+  font-weight: 550;
+  padding: 4px 5px 0 5px;
+  background: rgb(255, 255, 255);
+  color: #000;
+  border-radius: 4px;
+  border: 1.2px solid rgb(83, 83, 83);
+}
+.type-popup ul li:hover {
+  font-weight: 600;
+  cursor: pointer;
+  background: rgb(39, 107, 196);
+  color: rgb(255, 255, 255);
+  border: 1.2px solid rgb(255, 0, 0);
+}
+.parking {
+  width: 100px;
+  height: 35px;
+  margin: 8px 0px 8px 10px;
+}
+.more-popup {
+  width: 238px;
+}
+.more-popup div {
+  margin: 0px 0px 15px 0px;
+}
+.more-popup form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.gap {
+  width: 100px;
+  height: 35px;
+  margin-left: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.gapa {
+  width: 100px;
+  height: 35px;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+.more-popup label {
+  font-weight: 600;
+  margin: 0 8px 10px 10px;
+}
+.popup-img {
+  width: 65px;
+  height: 65px;
+}
+/*-------------------------------------------------------MAP-----------------------------------------------------*/
+.map {
+  height: 82vh;
+  position: relative;
+  z-index: 0;
+}
+.flex {
+  padding: 0;
+  display: flex;
+  font-weight: 600;
+}
+.flex button {
+  display: block;
+  margin: auto;
+  padding: 0 10px 0 10px;
+}
+.leaflet-popup-content p {
+  margin: 0 0 2px 0px !important;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 6px !important;
+  cursor: pointer;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  display: none;
+}
+.leaflet-popup-content {
+  margin: 4px !important;
+}
+.focus:focus {
+  border-bottom: 2px solid red;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+}
+/*------------------------------------------------------AD Detail-------------------------------------------*/
+.detail-popup-wrapper {
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: 5vw;
+  height: 100vh;
+}
+.adDetail {
+  width: 90vw;
+  height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: 2fr 1.4fr;
+  grid-template-areas: "as ar";
+}
+.popup-close-button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  padding: 4px 1px 9px 1px;
+  border: none;
+  text-align: center;
+  font: 16px/14px Tahoma, Verdana, sans-serif;
+  color: #000000;
+  text-decoration: none;
+  border: 1px solid red;
+  font-size: 30px;
+  z-index: 1;
+  background-color: white;
+}
+.popup-close-button:active {
+  transform: scale(0.9, 0.9);
+}
+.popup-close-button:hover {
+  font-weight: bold;
+  font-size: 30px;
+  color: #ff0000;
+}
+.adDetail aside {
+  grid-area: as;
+  overflow: auto;
+  background: rgb(255, 255, 255);
+  display: grid;
+  grid-gap: 4px;
+  grid-auto-columns: 1fr;
+  margin: 0 auto;
+}
+aside .img-size:nth-child(even) {
+  margin-left: 4px;
+}
+.img-size {
+  width: 50%;
+  margin: 0px 0px 0px 0px;
+}
+.img-size img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 50% 50%;
+  object-position: 50% 50%;
+}
+aside > img {
+  width: 100%;
+  height: 600px;
+}
+article {
+  background: rgb(255, 255, 255);
+  grid-area: ar;
+  overflow: auto;
+}
+article > img {
+  height: 100%;
+  width: 100%;
+}
+section > img {
+  height: 100%;
+  width: 100%;
+}
+article header {
+  background: white;
+  margin: 0px 20px;
+  border-bottom: 1.2px solid grey;
+  padding: 12px 0px 15px 0px;
+  text-align: center;
+}
+.property-detail {
+  margin-top: 30px;
+}
+.property-detail > h2 {
+  margin: 0px 0px 0px 20px;
+  font-size: 30px;
+  font-weight: normal;
+}
+.property-detail > div {
+  margin-top: 7px;
+  margin-left: 20px;
+}
+.property-detail > div > p {
+  font-size: 16px;
+  margin: 5px 2px 0px 2px;
+  font-weight: 400;
+}
+.property-detail > div > span {
+  margin: 0px 5px 0px 15px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.address {
+  margin: 5px 0px 5px 22px;
+  font-size: 17px;
+}
+article > span > img {
+  width: 23px;
+  margin: 8px 2px 0px 21px;
+  height: 23px;
+}
+article > span > p {
+  font-size: 23px;
+  margin: 2px 2px 0px 2px;
+  font-weight: 400;
+}
+article > span p:nth-child(2) {
+  font-size: 17px;
+  margin: 9px 2px 0px 2px;
+  font-weight: 500;
+}
+section > button {
+  margin: 10px 20px 10px 24px;
+  padding: 10px 0px 10px 0px;
+  color: white;
+  background: rgb(112, 111, 111);
+  width: 200px;
+  border: 1px solid rgb(80, 80, 80);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.flex-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+section > button:focus {
+  outline: none;
+}
+section > button:active {
+  transform: scale(0.9, 0.9);
+}
+section > button:hover {
+  color: rgb(0, 0, 0);
+  border: 1px solid red;
+  background: rgb(255, 255, 255);
+}
+.property-info {
+  height: 52vh;
+}
+section:nth-child(odd) {
+  padding: 10px 0px 10px 0px;
+  margin: 10px 20px 10px 20px;
+  border-bottom: 1.2px solid grey;
+}
+section > h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+section > p,
+.meeting-info > p {
+  text-align: justify;
+  margin: 20px 25px 5px 25px;
+  font-size: 17px;
+}
+.property-featuers > h2,
+.meeting-info > h2 {
+  margin: 20px 20px 5px 20px;
+  font-size: 23px;
+  font-weight: 600;
+}
+.property-featuers-detail {
+  display: flex;
+  justify-content: space-around;
+}
+
+.property-featuers label {
+  margin-right: 20px;
+  font-weight: 500;
+  font-size: 17px;
+}
+.property-featuers-detail span {
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+.icon {
+  color: rgb(255, 0, 0);
+  height: 20px;
+  width: 20px;
+  margin: 12px 10px 0px 0px;
+}
+.icon-margin {
+  margin: 20px 10px -3px 43px;
+}
+.btn-icon {
+  margin: 0px 15px -2px 0px;
+}
+.contact-icon-margin {
+  margin-left: 70px;
+  margin-top: 7px;
+}
+/*-------------------------------------------------------Meeting card------------------------------------------------*/
+.meeting-info > div {
+  height: 130px;
+  width: 85%;
+  background: rgb(0, 0, 0);
+  margin: 0 auto;
+  display: flex;
+  color: white;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.meeting-argument {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0px 30px 0px 5px;
+}
+.meeting-argument > div {
+  margin-top: 2px;
+}
+.meeting-value {
+  font-size: 19px;
+  font-weight: 400;
+  margin: 0px 0px 0px 0px;
+}
+/*-------------------------------------------------meetingRequest---------------------------------------------*/
+.meeting-request-wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 10vh;
+  left: 23%;
+}
+
+.close-btn-wrapper > a {
+  position: absolute;
+  right: 0px;
+  padding: 4px 1px 9px 1px;
+  text-align: center;
+  font: 16px/14px Tahoma, Verdana, sans-serif;
+  color: #000000;
+  text-decoration: none;
+  border: 1px solid red;
+  font-size: 30px;
+  z-index: 2;
+  background-color: white;
+}
+
+.close-btn-wrapper > a:active {
+  transform: scale(0.9, 0.9);
+}
+.close-btn-wrapper > a:hover {
+  font-weight: bold;
+  font-size: 28px;
+  color: #ff0000;
+}
+.meeting-request {
+  width: 45vw;
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+.meeting-card-wrapper {
+  width: 60%;
+}
+.request-wrapper {
+  width: 40%;
+  height: 500px;
+  color: #fff;
+  background: rgb(0, 0, 0);
+  padding: 20px;
+}
+.request-wrapper > p {
+  padding: 20px;
+}
+.request-wrapper > div > button {
+  padding: 7px 25px;
+  margin: 20px 33%;
+  font-size: 16px;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+.request-wrapper > div > button:hover {
+  background: #ff0000;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.request-wrapper > div > button:active {
+  color: rgb(51, 255, 0);
+  transform: scale(0.9, 0.9);
+}
+.meeting-card-wrapper > form {
+  margin-top: 30px;
+  padding-left: 30px;
+}
+.date {
+  height: 30px;
+  width: 200px;
+  padding: 15px;
+  margin: 10px 17%;
+  font-size: 17px;
+  border: 1px solid black;
+  font-weight: 600;
+}
+
+.time {
+  height: 30px;
+  width: 200px;
+  padding: 15px;
+  margin: 10px 17%;
+  font-size: 17px;
+  border: 1px solid black;
+  font-weight: 600;
+}
+.meeting-card-wrapper > form > button {
+  padding: 7px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  margin-left: 30%;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  outline: none;
+  font-weight: 600;
+}
+.meeting-card-wrapper > form > button:active {
+  transform: scale(0.9, 0.9);
+}
+.meeting-card-wrapper > button {
+  color: #fff;
+  background-color: #000;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 6px 10px;
+}
+.meeting-card-wrapper > button:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
+}
+.meeting-card-wrapper > button:active {
+  transform: scale(0.9, 0.9);
+}
+/*---------------------------------------------Place Bid----------------------------------*/
+.place-bid-wrapper {
+  background-color: rgb(250, 250, 250);
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.outer-Bid-wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 10vh;
+  left: 23%;
+  width: 33%;
+}
+.place-bid-wrapper > h2 {
+  margin: 20px auto;
+}
+.place-bid-wrapper > p {
+  text-align: justify;
+  margin: 0px 50px 20px 50px;
+}
+.place-bid-wrapper > form {
+  width: 200px;
+}
+.place-bid-wrapper > form > label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.place-bid-wrapper > form > input {
+  width: 190px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.place-bid-wrapper > form > input:focus {
+  border: 1px solid red;
+  box-shadow: inset 0px 0px 13px -5px #000;
+}
+
+.place-bid-wrapper > form > button {
+  padding: 6px 30px 6px 25px;
+  color: #fff;
+  background-color: #000;
+  font-size: 18px;
+  margin: 20px 0 30px 15%;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.place-bid-wrapper > form > button:active {
+  transform: scale(0.9, 0.9);
+}
+.place-bid-wrapper > form > button:hover {
+  background: red;
+}
+/*-----------------------------------------------------Contact----------------------------------------*/
+
+.outer-contact-wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 10vh;
+  left: 23%;
+}
+.place-contact-wrapper {
+  width: 360px;
+}
+.contact-wrapper {
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-wrap: wrap;
+}
+.contact-wrapper > div > form > textarea {
+  height: 120px;
+  width: 260px;
+  text-align: justify;
+}
+.contact-detail {
+  background-color: #000;
+  color: #fff;
+  width: 240px;
+}
+.contact-detail > h2 {
+  margin: 18px 0px 20px 15px;
+}
+.contact-detail > p {
+  margin: 20px;
+  margin-bottom: 50px;
+  text-align: justify;
+}
+.contact-detail > span {
+  margin: 20px;
+  font-size: 22px;
+}
+/*----------------------------------------Image Popup------------------------------------*/
+.image-popup-wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  top: 0px;
+  left: -5vw;
+  background-color: rgba(124, 124, 124, 0.651);
+}
+.close-img > a {
+  top: 0px;
+  font-size: 33px;
+}
+.img-popup > img {
+  margin: 0 10%;
+  width: 80%;
+  height: 98vh;
+}
+/*----------------------------------------Sell Page-------------------------------------*/
+.sell-page > h2 {
+  margin: 2vh auto;
+  color: green;
+  width: 358px;
+}
+.sell-page nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0vh auto;
+  width: 250px;
+  color: red;
+}
+.sell-page nav ul li {
+  margin: 0px 12px;
+  padding: 0px 8px 3px 8px;
+  font-weight: 700;
+  border-radius: 12px;
+  background: rgb(0, 0, 0);
+  color: #fff;
+  cursor: pointer;
+}
+#active-form {
+  background: rgb(67, 207, 24);
+  color: rgb(0, 0, 0);
+}
+.sell-page form,
+.agent-signup form {
+  width: 350px;
+  margin: 0vh auto;
+  margin-top: 7vh;
+}
+
+.Label {
+  color: #000;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: block;
+}
+.Input {
+  width: 100%;
+  box-sizing: border-box;
+}
+.input-element {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 5px;
+}
+.input-element:focus {
+  border-bottom: 2px solid rgb(255, 0, 0);
+  box-shadow: 0px 0px 15px -7px red;
+  color: red;
+  transition: 0.3s ease;
+}
+.checkbox-element {
+  height: 18px;
+  margin-right: 10px;
+  width: 18px;
+}
+.Span {
+  font-size: 19px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.sell-page form textarea,
+.agent-signup form textarea {
+  display: block;
+  height: 135px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-bottom: 2px solid black;
+}
+
+.sell-page button,
+.agent-signup button {
+  width: 120px;
+  height: 35px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  font-weight: 700;
+  font-size: 17px;
+}
+.sell-page button:hover,
+.agent-signup button:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 1px solid red;
+}
+.sell-page button:active,
+.agent-signup button:active {
+  transform: scale(0.9, 0.9);
+}
+/*-----------------basic form-----------*/
+.basic-form {
+  width: 350px;
+  margin: 0 auto;
+}
+.next-btn {
+  width: 240px;
+  margin: 20px 30%;
+}
+.flex-size {
+  display: flex;
+}
+.flex-size > select {
+  margin: 37px 0 0 0px;
+}
+select:hover {
+  border-bottom: 2px solid rgb(255, 0, 0);
+  color: red;
+  outline: none;
+  cursor: pointer;
+}
+.basic-form h3 {
+  width: 160px;
+  margin: 20px auto;
+}
+.basic-form select {
+  display: block;
+  width: 350px;
+  height: 35px;
+  font-size: 19px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 2px solid black;
+}
+.basic-form select:focus {
+  border-bottom: 2px solid rgb(255, 0, 0);
+  color: red;
+}
+
+#size-type {
+  width: 80px;
+}
+.upload-img section {
+  width: 70vw;
+  margin: 0 auto;
+}
+.basic-form form a,
+.basic-form form p {
+  font-size: 11px;
+  color: red;
+  position: relative;
+  top: -6px;
+}
+#no-acount {
+  font-size: 15px;
+  color: red;
+  font-weight: 600;
+}
+.signin-btn {
+  width: 240px;
+  margin: 20px 30%;
+}
+.signup-btn {
+  width: 240px;
+  margin: 20px 30%;
+}
+.signin-form input {
+  background-color: rgb(248, 248, 248);
+}
+.signin-form {
+  width: 400px;
+  padding: 50px 0px;
+  margin: 15px auto;
+  background-color: rgb(248, 248, 248);
+  border-radius: 20px;
+  box-shadow: 0px 0px 18px 1px grey;
+}
+.signin-form h2 {
+  margin: 0px 20px 30px 20px;
+}
+.signin-btn button {
+  background: rgb(19, 160, 0);
+}
+/*----------------------------------------Rent page-------------------------*/
+.rent {
+  box-shadow: 0px 0px 7px 0px grey;
+  margin-top: 55px;
+  border-radius: 20px;
+  padding: 50px 0px;
+  background-color: #f7f7f7;
+}
+.rent h1 {
+  font-size: 20px;
+  margin: 0 auto;
+  width: 252px;
+}
+.rent h1:nth-child(1) {
+  width: 212px;
+}
+/*---------------------------------Agents List sub LIst / listing -------------------------*/
+.agentlist-page {
+  margin: 0 auto;
+  width: 550px;
+}
+.listing-page {
+  max-width: 50vw;
+  min-width: 500px;
+  margin: 0 auto;
+}
+.list-page {
+  width: 100%;
+  margin-top: 15px;
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.list-page:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.list-page div img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 55px;
+}
+.list-page div p {
+  width: 280px;
+}
+.list-page span {
+  margin: 40px 10px 0 10px;
+  font-size: 35px;
+  font-weight: 700;
+}
+.show {
+  width: 300px;
+  margin: 0 auto;
+}
+.list-page {
+  background-color: rgb(156, 156, 156);
+}
+.show button {
+  padding: 10px 15px;
+  margin: 0px 10px 10px 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(245, 58, 58);
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.show button:active {
+  transform: scale(0.95, 0.95);
+}
+.show button:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.list-wrapper article {
+  position: relative;
+  background-color: rgb(185, 185, 185);
+  color: white;
+  letter-spacing: 2px;
+  padding: 15px;
+  text-align: center;
+}
+.avatar-img {
+  width: 100px;
+  height: 100px;
+  margin: 10px 20px 0px 0px;
+  border-radius: 50%;
+}
+/*----------------------------------------------------delete modal-------------------------*/
+.modal {
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  outline: none;
+  background-color: rgb(240, 240, 240);
+  padding: 15px;
+  border-radius: 10px;
+}
+.modal aside {
+  display: flex;
+  justify-content: flex-end;
+}
+.modal button:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+  border: 1px solid red;
+}
+.modal button:active {
+  transform: scale(0.97, 0.97);
+}
+
+.modal button {
+  padding: 8px 15px;
+  background: #000;
+  color: #fff;
+  outline: none;
+  border: 1px solid rgb(0, 0, 0);
+  font-weight: 600;
+  margin: 0 12px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(92, 92, 92, 0.432);
+}
+/*------------------------------------table bid list------------------------------------*/
+.bid-list-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin: 10px auto;
+}
+.bid-list-table td {
+  font-weight: 600;
+}
+
+.bid-list-table td,
+.bid-list-table th {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 8px;
+}
+
+.bid-list-table tr:nth-child(even) {
+  color: rgb(255, 255, 255);
+  background-color: #646363;
+}
+.bid-list-table tr:nth-child(odd) {
+  color: rgb(0, 0, 0);
+  background-color: #cecece;
+}
+
+.bid-list-table tr:hover {
+  background-color: #868383;
+  color: rgb(255, 255, 255);
+}
+
+.bid-list-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #646363;
+  color: white;
+}
+.bid-list-table td button {
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+.bid-list-table td .no {
+  background-color: red;
+  margin: 0px 0px 0 20px;
+}
+.bid-list-table td .block {
+  background-color: red;
+  margin: 0px 0px 0 20px;
+  width: 80px;
+  height: 30px;
+}
+/*------------------------------------------agent-home-page---------------------------*/
+
+.agent-home-page {
+  display: flex;
+  background-color: #dadada;
+  justify-content: space-evenly;
+}
+.profile-info {
+  padding: 10px;
+}
+.profile-info-card img {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  position: relative;
+  top: -55px;
+  box-shadow: 0px -7px 11px 1px rgb(139, 139, 139);
+  left: 32%;
+}
+.profile-info-card > div {
+  width: 350px;
+  margin: -40px 0px 0px 0px;
+}
+.profile-info-card > div h2,
+.profile-info-card > div label {
+  text-align: center;
+}
+.profile-info-card > div h3,
+.profile-info-card > div > div {
+  margin-left: 20px;
+}
+.profile-info-card > div > div:nth-child(even) {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin-top: 50px;
+  text-align: center;
+}
+.profile-info-card > div > p {
+  margin: 0 20px 15px 20px;
+}
+.profile-info-card {
+  height: 500px;
+  width: 90%;
+  margin: 10px 20px;
+  margin-top: 80px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 17px 0px rgb(139, 139, 139);
+}
+.listing-wrapper {
+  display: flex;
+  height: 300px;
+  width: 60vw;
+  background: #dadada;
+  margin: 10px auto;
+  overflow-y: hidden;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.listing-wrapper .list-wrapper .list-page .list-item:hover {
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+}
+.listing-wrapper .list-wrapper .list-page {
+  background-color: #fff;
+  box-shadow: 0px 0px 11px 0px rgb(139, 139, 139);
+  border-radius: 10px;
+}
+.listing-wrapper .list-wrapper .list-page .list-item {
+  display: block;
+  height: 250px;
+  cursor: default;
+}
+.listing-wrapper .list-wrapper .list-page .list-item h2 {
+  font-size: 18px;
+}
+.listing-wrapper .list-wrapper .list-page .list-item p {
+  margin-left: 10px;
+}
+.listing-wrapper .list-wrapper .list-page .list-item div h2 {
+  margin-left: 10px;
+}
+.listing-wrapper .list-wrapper .list-page .list-item div img {
+  border-radius: 0px;
+  width: 210px;
+  height: 150px;
+  border-radius: 10px 10px 0px 0px;
+}
+.listing-wrapper .list-wrapper {
+  margin: 0 10px;
+  width: 230px;
+}
+.listing {
+  margin-top: 20px;
+}
+.listing h2 {
+  margin-left: 10px;
+}
+.listing textarea {
+  height: 100px;
+  width: 97%;
+  font-size: 18px;
+  margin: 15px 0 15px 15px;
+  border: 1px solid #000;
+}
+.profile-info-card article {
+  display: flex;
+  justify-content: center;
+}
+.rating {
+  cursor: pointer;
+}
+.rating-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.rating-wrapper input[type="radio"] {
+  display: none;
+}
+.review {
+  border-radius: 10px;
+  background-color: #fff;
+  width: 60vw;
+  margin: 10px auto 25px auto;
+}
+.listing section {
+  display: flex;
+  justify-content: center;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.review-post-btn {
+  background-color: black;
+  padding: 15px 35px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/*------------------------------buy page media queries------------------------------------*/
+/*--------------------------------------1800px-------------------------------*/
+
+/*--------------------------------------1300px----------------------------------*/
+@media (max-width: 1300px) {
+  .property-detail {
+    display: block;
+  }
+  .property-detail > div {
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+}
+/*--------------------------------------1200px----------------------------------*/
+
+@media (max-width: 1200px) {
+}
+/*--------------------------------------1100px----------------------------------*/
+
+@media (max-width: 1100px) {
+  .nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .nav-bar > h1 {
+    height: 45px;
+    padding-top: 10px;
+  }
+  .nav-bar ul {
+    height: 45px;
+    margin: 20px 7vw 0px 0;
+  }
+  .search-paramaters {
+    display: block;
+  }
+  .search-paramaters-wrapper {
+    margin-top: 8px;
+    width: 70vw;
+  }
+
+  .adDetail {
+    display: block;
+  }
+  .adDetail aside {
+    height: 500px;
+    overflow: hidden;
+  }
+  .adDetail aside > img {
+    height: 500px;
+  }
+  article {
+    overflow: visible;
+  }
+  section:nth-child(odd) {
+    padding: 10px 120px;
+  }
+  .outer-contact-wrapper {
+    position: fixed;
+  }
+  .meeting-request {
+    flex-wrap: wrap;
+  }
+  .outer-Bid-wrapper {
+    position: fixed;
+    width: 39%;
+  }
+  .meeting-request {
+    width: 560px;
+  }
+  .meeting-request-wrapper {
+    position: fixed;
+  }
+  .meeting-card-wrapper {
+    width: 300px;
+  }
+  .request-wrapper {
+    width: 250px;
+  }
+  .request-wrapper > div > button {
+    margin: 20px 22%;
+  }
+  /*--------------------------------------------agent home----------------------------*/
+  .listing textarea {
+    width: 95%;
+  }
+  .review {
+    width: 50vw;
+  }
+  .listing-wrapper {
+    width: 50vw;
+  }
+}
+/*--------------------------------------900px----------------------------------*/
+
+@media (max-width: 900px) {
+  section:nth-child(odd) {
+    padding: 10px 20px;
+  }
+  .outer-contact-wrapper {
+    left: 10%;
+  }
+  .meeting-request-wrapper {
+    left: 10%;
+  }
+}
+/*--------------------------------------800px----------------------------------*/
+
+@media (max-width: 800px) {
+  .nav-bar ul {
+    display: none;
+  }
+  .nav-bar > h1 {
+    padding-top: 0px;
+  }
+  .search-paramaters-wrapper {
+    width: 80vw;
+  }
+  .map {
+    height: 82.5vh;
+  }
+  .outer-Bid-wrapper {
+    width: 55%;
+  }
+  /*--------------------------------------------agent home----------------------------*/
+  .agent-home-page {
+    display: block;
+    padding-bottom: 20px;
+  }
+  .profile-info-card {
+    width: 70%;
+    margin: 10px auto;
+    margin-top: 80px;
+  }
+  .profile-info-card > div {
+    width: 350px;
+    margin: -40px auto 0px auto;
+  }
+  .profile-info-card img {
+    left: 38%;
+  }
+  .review {
+    width: 80vw;
+  }
+  .listing-wrapper {
+    width: 80vw;
+  }
+  .listing h2 {
+    margin-left: 10vw;
+  }
+  /*--------------------------------------760px----------------------------------*/
+}
+@media (max-width: 760px) {
+  .search-paramaters-wrapper {
+    display: none;
+  }
+  .map {
+    height: 87.6vh;
+  }
+  .outer-contact-wrapper {
+    width: 360px;
+    top: 0vh;
+    left: 25%;
+  }
+  .contact-detail {
+    width: 360px;
+  }
+  .contact-detail > p {
+    margin: 0px 10px 10px 10px;
+  }
+  .contact-detail > h2 {
+    margin: 10px 0px 10px 15px;
+  }
+  .place-bid-wrapper > h2 {
+    margin: 10px auto;
+  }
+  .meeting-request-wrapper {
+    top: 0vh;
+    left: 25%;
+  }
+  .meeting-request {
+    width: 360px;
+  }
+  .meeting-card-wrapper {
+    height: 280px;
+    width: 360px;
+  }
+  .request-wrapper {
+    width: 360px;
+    height: 210px;
+  }
+}
+/*--------------------------------------650px----------------------------------*/
+@media (max-width: 650px) {
+  .profile-info-card img {
+    left: 35%;
+  }
+  .profile-info-card {
+    width: 75%;
+  }
+  .review {
+    width: 90vw;
+  }
+  .listing-wrapper {
+    width: 90vw;
+  }
+  .listing h2 {
+    margin-left: 5vw;
+  }
+}
+/*--------------------------------------500px----------------------------------*/
+
+@media (max-width: 500px) {
+  .property-featuers-detail {
+    display: block;
+    margin-left: 43px;
+  }
+  .contact-icon-margin {
+    margin-left: 20px;
+  }
+  .outer-contact-wrapper {
+    left: 0%;
+  }
+  .outer-Bid-wrapper {
+    left: 0px;
+    width: 85%;
+  }
+  .meeting-request-wrapper {
+    left: 5%;
+  }
+  .profile-info-card img {
+    left: 33%;
+  }
+  .profile-info-card {
+    width: 90%;
+  }
+  .profile-info-card article {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .listing-wrapper .list-wrapper .list-page .list-item div img {
+    width: 160px;
+  }
+  .listing-wrapper .list-wrapper {
+    width: 180px;
+  }
+  .listing-wrapper .list-wrapper .list-page .list-item h2 {
+    font-size: 15px;
+  }
+}
+/*--------------------------------------360px----------------------------------*/
+
+@media (max-width: 360px) {
+  .outer-contact-wrapper {
+    position: absolute;
+    left: 0%;
+  }
+  .outer-Bid-wrapper {
+    width: 100%;
+  }
+  .meeting-request-wrapper {
+    position: absolute;
+    left: 0%;
+  }
+}
