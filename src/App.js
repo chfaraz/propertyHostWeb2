@@ -3,6 +3,7 @@ import "./App.css";
 
 import Buy from "./Components/Buy";
 import Rent from "./Components/Rent";
+import Map from "./Containers/Map/Map";
 import Sell from "./Containers/Sell";
 import Nav from "./Components/Nav";
 import Home from "./Components/Home";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/buy" exact component={Buy} />
         <Route path="/sell" component={Sell} />
+        <Route path="/map" component={Map} />
         <Route path="/rent" component={Rent} />
         <Route path="/agentList" component={AgentList} />
         <Route path="/myListing" component={MyListing} />

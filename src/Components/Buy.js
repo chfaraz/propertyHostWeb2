@@ -1,43 +1,47 @@
 import React, { Component } from "react";
-import Maap from "../Map/Map";
+import Maap from "../Containers/Map/Properties";
 import { FaSearch } from "react-icons/fa";
-
+const patterns = {
+  buildYear: /^(19|20)\d{2}$/,
+};
 class Buy extends Component {
   state = {
+    searchParameters: {
+      sellChecked: true,
+      rentChecked: false,
+      purpose: "sell",
+      priceFrom: "",
+      priceToo: "",
+      bedRoomsFrom: "",
+      bedRoomsToo: "",
+      bathRoomsFrom: "",
+      bathRoomsToo: "",
+      threeDTour: "off",
+      basement: "off",
+      singleStory: "off",
+      parking: "--",
+      buildYearFrom: "",
+      buildYearToo: "",
+      sizeType: "Marla",
+      sizeFrom: "",
+      sizeToo: "",
+      propertyType: "",
+    },
+    error: {
+      buildYearFrom: "",
+      buildYearToo: "",
+    },
     showPurposePopup: false,
     showPriceHandler: false,
     showRoomsHandler: false,
     showTypeHandler: false,
     showHomeType: false,
     showPlotType: false,
-    showMoreType: false,
+    showMoreHandler: false,
     showCommercialType: false,
     active: false,
   };
-  constructor(props) {
-    super(props);
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
-  }
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-  }
 
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
-  }
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
-  handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({ showPurposePopup: false });
-      this.setState({ showRoomsHandler: false });
-      this.setState({ showTypeHandler: false });
-      this.setState({ showMoreHandler: false });
-      this.setState({ showPriceHandler: false });
-    }
-  }
   toggelPurposeHandler = () => {
     const doesShow = this.state.showPurposePopup;
     this.setState({ showPurposePopup: !doesShow });
@@ -78,25 +82,83 @@ class Buy extends Component {
     this.setState({ showPriceHandler: false });
     this.setState({ showRoomsHandler: false });
   };
-  homeType = () => {
-    const doesShow = this.state.showHomeType;
-    this.setState({ showHomeType: !doesShow });
-    this.setState({ showCommercialType: false });
-    this.setState({ showPlotType: false });
+  hidePopup = () => {
+    this.setState({ showMoreHandler: false });
+    this.setState({ showTypeHandler: false });
+    this.setState({ showPurposePopup: false });
+    this.setState({ showPriceHandler: false });
+    this.setState({ showRoomsHandler: false });
   };
-  plotType = () => {
-    const doesShow = this.state.showPlotType;
-    this.setState({ showCommercialType: false });
-    this.setState({ showHomeType: false });
-    this.setState({ showPlotType: !doesShow });
-  };
-  commercialType = () => {
-    const doesShow = this.state.showCommercialType;
-    this.setState({ showHomeType: false });
-    this.setState({ showPlotType: false });
-    this.setState({ showCommercialType: !doesShow });
-  };
+  handleChange = (e) => {
+    const currentState = { ...this.state };
+    var key = e.target.name;
+    var value = e.target.value;
+    let form = currentState.searchParameters;
+    form[key] = value;
+    this.setState({
+      searchParameters: form,
+    });
 
+    if (
+      !this.validation(
+        this.state.searchParameters.buildYearFrom,
+        patterns["buildYear"]
+      ) &&
+      e.target.name === "buildYearFrom"
+    ) {
+      let preState = { ...this.state };
+      preState.error.buildYearFrom = true;
+      this.setState({ preState });
+    } else if (
+      this.validation(
+        this.state.searchParameters.buildYearFrom,
+        patterns["buildYear"]
+      ) &&
+      e.target.name === "buildYearFrom"
+    ) {
+      let preState = { ...this.state };
+      preState.error.buildYearFrom = false;
+      this.setState({ preState });
+    }
+    if (
+      !this.validation(
+        this.state.searchParameters.buildYearToo,
+        patterns["buildYear"]
+      ) &&
+      e.target.name === "buildYearToo"
+    ) {
+      let preState = { ...this.state };
+      preState.error.buildYearToo = true;
+      this.setState({ preState });
+    } else if (
+      this.validation(
+        this.state.searchParameters.buildYearToo,
+        patterns["buildYear"]
+      ) &&
+      e.target.name === "buildYearToo"
+    ) {
+      let preState = { ...this.state };
+      preState.error.buildYearToo = false;
+      this.setState({ preState });
+    }
+
+    console.log(this.state.searchParameters);
+  };
+  checkedChange = () => {
+    const currentState = { ...this.state };
+    if (this.state.searchParameters.purpose === "sell") {
+      currentState.searchParameters.sellChecked = true;
+      currentState.searchParameters.rentChecked = false;
+      this.setState({ currentState });
+    } else if (this.state.searchParameters.purpose === "rent") {
+      currentState.searchParameters.rentChecked = true;
+      currentState.searchParameters.sellChecked = false;
+      this.setState({ currentState });
+    }
+  };
+  validation = (e, regex) => {
+    return regex.test(e);
+  };
   render() {
     let showPurposePopup = null;
     if (this.state.showPurposePopup) {
@@ -104,10 +166,24 @@ class Buy extends Component {
         <div className="purpose-wrapper" ref={this.setWrapperRef}>
           <div className="purpose-popup look">
             <form>
-              <input type="radio" name="purpose" value="sale" />
+              <input
+                type="radio"
+                name="purpose"
+                value="sell"
+                checked={this.state.searchParameters.sellChecked}
+                onClick={this.handleChange}
+                onChange={this.checkedChange}
+              />
               <label htmlFor="sale">For Sale</label>
               <br />
-              <input type="radio" name="purpose" value="rent" />
+              <input
+                type="radio"
+                name="purpose"
+                checked={this.state.searchParameters.rentChecked}
+                value="rent"
+                onClick={this.handleChange}
+                onChange={this.checkedChange}
+              />
               <label htmlFor="rent">For Rent</label>
               <br />
             </form>
@@ -124,8 +200,22 @@ class Buy extends Component {
             <form>
               <label>Price</label>
               <br />
-              <input type="text" placeholder="From" className="focus" /> -
-              <input type="text" placeholder="Too" className="focus" />
+              <input
+                type="number"
+                placeholder="From"
+                name="priceFrom"
+                className="focus"
+                onChange={this.handleChange}
+              />
+              {" -"}
+
+              <input
+                type="number"
+                placeholder="Too"
+                name="priceToo"
+                className="focus"
+                onChange={this.handleChange}
+              />
             </form>
             <button>Done</button>
           </div>
@@ -141,13 +231,39 @@ class Buy extends Component {
             <form>
               <label>No fo Rooms</label>
               <br />
-              <input type="text" placeholder="From" className="focus" /> -
-              <input type="text" placeholder="Too" className="focus" />
+              <input
+                type="text"
+                placeholder="From"
+                name="bedRoomsFrom"
+                onChange={this.handleChange}
+                className="focus"
+              />{" "}
+              -
+              <input
+                type="text"
+                placeholder="Too"
+                name="bedRoomsToo"
+                onChange={this.handleChange}
+                className="focus"
+              />
               <br />
               <label>No fo Baths</label>
               <br />
-              <input type="text" placeholder="From" className="focus" /> -
-              <input type="text" placeholder="Too" className="focus" />
+              <input
+                type="text"
+                placeholder="From"
+                name="bathRoomsFrom"
+                onChange={this.handleChange}
+                className="focus"
+              />{" "}
+              -
+              <input
+                type="text"
+                placeholder="Too"
+                name="bathRoomsToo"
+                onChange={this.handleChange}
+                className="focus"
+              />
             </form>
             <button>Done</button>
           </div>
@@ -160,31 +276,35 @@ class Buy extends Component {
       showTypeHandler = (
         <div className="type-wrapper" ref={this.setWrapperRef}>
           <div className="type-popup look">
-            <ul>
-              <li onClick={this.homeType}>Home</li>
-              {this.state.showHomeType ? (
-                <ul>
-                  <li>House</li>
-                  <li>Flat</li>
-                </ul>
-              ) : null}
-              <li onClick={this.plotType}>Plot</li>
-              {this.state.showPlotType ? (
-                <ul>
-                  <li>Residential</li>
-                  <li>Commercial</li>
-                  <li>Agricultral</li>
-                </ul>
-              ) : null}
-              <li onClick={this.commercialType}>Commercial</li>
-              {this.state.showCommercialType ? (
-                <ul>
-                  <li>Office</li>
-                  <li>Shop</li>
-                  <li>Ware House</li>
-                </ul>
-              ) : null}
-            </ul>
+            <select
+              onClick={this.handleChange}
+              name="propertyType"
+              className="parking focus property-type-dropdown"
+            >
+              <option value="All Homes">All Homes</option>
+              <option value="House">House</option>
+              <option value="Flat">Flat</option>
+            </select>
+            <select
+              onClick={this.handleChange}
+              name="propertyType"
+              className="parking focus property-type-dropdown"
+            >
+              <option value="Plots  ">Plots</option>
+              <option value="Residential Plot">Residential Plot</option>
+              <option value="Commercial Plot">Commercial Plot</option>
+              <option value="Agricultral Plot">Agricultral Plot</option>
+            </select>
+            <select
+              onClick={this.handleChange}
+              name="propertyType"
+              className="parking focus property-type-dropdown"
+            >
+              <option value="Commercial">Commercial</option>
+              <option value="Shop">Shop</option>
+              <option value="Office">Office</option>
+              <option value="Ware House">Ware House</option>
+            </select>
           </div>
         </div>
       );
@@ -197,35 +317,96 @@ class Buy extends Component {
           <div className="more-popup look look-query">
             <form>
               <div>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onChange={this.handleChange}
+                  name="threeDTour"
+                />
                 <label>Have 3D Home Tour</label>
                 <br />
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onChange={this.handleChange}
+                  name="basement"
+                />
                 <label>Have Basement</label>
                 <br />
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onChange={this.handleChange}
+                  name="singleStory"
+                />
                 <label>Single Story Only</label>
                 <br />
               </div>
               <label htmlFor="parking">Parking Spots</label>
               <br />
-              <select name="parking" className="parking focus">
+              <select
+                onChange={this.handleChange}
+                name="parking"
+                className="parking focus"
+              >
+                <option value="1">--</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="4">5</option>
+                <option value="4">More then 5</option>
               </select>
               <br />
               <label>Year Built</label>
               <br />
-              <input type="text" placeholder="From" className="gap focus" />
-              <input type="text" placeholder="Too" className="gap focus" />
+              <input
+                type="number"
+                placeholder="From"
+                name="buildYearFrom"
+                onChange={this.handleChange}
+                className={
+                  this.state.error.buildYearFrom ? "invalid gap" : "gap"
+                }
+              />
+              <input
+                type="number"
+                placeholder="Too"
+                name="buildYearToo"
+                onChange={this.handleChange}
+                className={
+                  this.state.error.buildYearToo ? "invalid gap" : "gap"
+                }
+              />
+              {this.state.error.buildYearFrom ||
+              this.state.error.buildYearToo ? (
+                <p>Write Year in this formate " 2005 "</p>
+              ) : null}
+
+              <div className="flex-size">
+                <label>Size in</label>
+                <select
+                  name="sizeType"
+                  className="gapa focus"
+                  onChange={this.handleChange}
+                >
+                  <option>Marla</option>
+                  <option>Canal</option>
+                  <option>Acer</option>
+                </select>
+              </div>
               <br />
-              <label>Size in Marlas</label>
-              <br />
-              <input type="text" placeholder="From" className="gapa focus" />
-              <input type="text" placeholder="Too" className="gap focus" />
+              <input
+                type="number"
+                placeholder="From"
+                name="sizeFrom"
+                onChange={this.handleChange}
+                className="gapa focus"
+              />
+              <input
+                type="number"
+                placeholder="Too"
+                name="sizeToo"
+                onChange={this.handleChange}
+                className="gap focus"
+              />
             </form>
             <button>Done</button>
           </div>
@@ -242,28 +423,60 @@ class Buy extends Component {
           </div>
           <div className="search-paramaters-wrapper">
             <div>
-              <button onClick={this.toggelPurposeHandler}>For Sale</button>
+              <button
+                id={this.state.showPurposePopup ? "activeBtn" : null}
+                onClick={this.toggelPurposeHandler}
+              >
+                {this.state.searchParameters.purpose === "sell"
+                  ? "For Sale"
+                  : "For Rent"}
+              </button>
               {showPurposePopup}
             </div>
             <div>
-              <button onClick={this.toggelPriceHandler}>Price</button>
+              <button
+                id={this.state.showPriceHandler ? "activeBtn" : null}
+                onClick={this.toggelPriceHandler}
+              >
+                Price
+              </button>
               {showPriceHandler}
             </div>
             <div>
-              <button onClick={this.toggelRoomsHandler}>Beds & Baths</button>
+              <button
+                id={this.state.showRoomsHandler ? "activeBtn" : null}
+                onClick={this.toggelRoomsHandler}
+              >
+                Beds & Baths
+              </button>
               {showRoomsHandler}
             </div>
             <div>
-              <button onClick={this.toggelTypeHandler}>Home Type</button>
+              <button
+                id={this.state.showTypeHandler ? "activeBtn" : null}
+                onClick={this.toggelTypeHandler}
+              >
+                {this.state.searchParameters.propertyType === ""
+                  ? "Home Type"
+                  : this.state.searchParameters.propertyType}
+              </button>
               {showTypeHandler}
             </div>
             <div>
-              <button onClick={this.toggelMoreHandler}>More</button>
+              <button
+                id={this.state.showMoreHandler ? "activeBtn" : null}
+                onClick={this.toggelMoreHandler}
+              >
+                More
+              </button>
               {showMoreHandler}
             </div>
           </div>
         </div>
-        <Maap />
+        <Maap
+          searchParameters={this.state.searchParameters}
+          hidePopup={this.hidePopup}
+        />
       </div>
     );
   }

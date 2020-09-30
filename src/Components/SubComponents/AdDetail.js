@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 import MeetingCard from "./MeetingCard";
-import MeetingRequest from "./MeetingRequest";
 import PlaceBid from "./PlaceBid";
-import Contact from "./Contact";
 import ImageGallery from "./ImageGallery";
 import { BsBuilding } from "react-icons/bs";
 import {
@@ -22,44 +20,22 @@ import { GiFamilyHouse, GiResize } from "react-icons/gi";
 
 class AdDetail extends Component {
   state = {
-    showMeetingPopup: false,
     showBidPopup: false,
-    showContactPopup: false,
     showImagePopup: false,
   };
-  showMeetingHandler = () => {
-    this.setState({ showBidPopup: false });
-    this.setState({ showContactPopup: false });
-    this.setState({ showMeetingPopup: true });
-  };
+
   showImageHandler = () => {
     this.setState({ showImagePopup: true });
   };
   showBidHandler = () => {
-    this.setState({ showMeetingPopup: false });
-    this.setState({ showContactPopup: false });
     this.setState({ showBidPopup: true });
   };
-  showContactHandler = () => {
-    this.setState({ showMeetingPopup: false });
-    this.setState({ showBidPopup: false });
-    this.setState({ showContactPopup: true });
-  };
   hidePopup = () => {
-    const doesShowMeeting = this.state.showMeetingPopup;
     const doesShowBid = this.state.showBidPopup;
     const doesShowImg = this.state.showImagePopup;
-    const doesShowContact = this.state.showContactPopup;
-    if (
-      doesShowMeeting === true ||
-      doesShowBid === true ||
-      doesShowContact === true ||
-      doesShowImg === true
-    ) {
-      this.setState({ showMeetingPopup: false });
+    if (doesShowBid === true || doesShowImg === true) {
       this.setState({ showBidPopup: false });
       this.setState({ showImagePopup: false });
-      this.setState({ showContactPopup: false });
     }
   };
   render() {
@@ -95,20 +71,6 @@ class AdDetail extends Component {
             <p>03365543872</p>
           </span>
           <section className="flex-button">
-            <button onClick={this.showContactHandler}>
-              <FaPhoneAlt className="btn-icon" />
-              Contact
-            </button>
-            {this.state.showContactPopup ? (
-              <div className="outer-contact-wrapper">
-                <div className="close-btn-wrapper">
-                  <a href="#close" onClick={this.hidePopup}>
-                    ×
-                  </a>
-                  <Contact />
-                </div>
-              </div>
-            ) : null}
             <button onClick={this.showBidHandler}>
               <FaDollarSign className="btn-icon" />
               Place Bid
@@ -127,20 +89,6 @@ class AdDetail extends Component {
               <FaLocationArrow className="btn-icon" />
               Navigate
             </button>
-            <button onClick={this.showMeetingHandler}>
-              <FaClock className="btn-icon" />
-              Meeting
-            </button>
-            {this.state.showMeetingPopup ? (
-              <div className="meeting-request-wrapper">
-                <div className="close-btn-wrapper">
-                  <a href="#close" onClick={this.hidePopup}>
-                    ×
-                  </a>
-                  <MeetingRequest />
-                </div>
-              </div>
-            ) : null}
           </section>
           <section className="property-info">
             <h2>Overview</h2>

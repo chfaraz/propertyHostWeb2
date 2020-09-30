@@ -177,7 +177,13 @@ footer {
   border-radius: 4px;
   border: 1.2px solid rgb(83, 83, 83);
 }
-.activeBtn,
+#activeBtn {
+  font-weight: 600;
+  background: rgb(39, 107, 196);
+  color: rgb(255, 255, 255);
+  border: 1.2px solid rgb(255, 0, 0);
+  cursor: pointer;
+}
 .search-paramaters-wrapper button:hover {
   font-weight: 600;
   background: rgb(39, 107, 196);
@@ -255,7 +261,7 @@ footer {
 .price-popup input {
   width: 110px;
   height: 35px;
-  margin-left: 10px;
+  margin: 10px 10px 0 10px;
 }
 .price-popup label {
   font-weight: 600;
@@ -284,46 +290,16 @@ footer {
 }
 .type-popup {
   padding: 10px;
-  width: 150px;
+  width: 195px;
 }
-.type-popup ul {
-  list-style: none;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-.type-popup > ul > li {
-  margin: 5px 0 5px 0;
-  height: 35px;
-  width: 100px;
-  font-weight: 550;
-  padding: 4px 5px 0 5px;
-  background: rgb(255, 255, 255);
-  color: #000;
-  border-radius: 4px;
-  border: 1.2px solid rgb(83, 83, 83);
-}
-.type-popup > ul > ul > li {
-  margin: 5px 0 5px 15px;
-  width: 100px;
-  height: 35px;
-  font-weight: 550;
-  padding: 4px 5px 0 5px;
-  background: rgb(255, 255, 255);
-  color: #000;
-  border-radius: 4px;
-  border: 1.2px solid rgb(83, 83, 83);
-}
-.type-popup ul li:hover {
-  font-weight: 600;
-  cursor: pointer;
-  background: rgb(39, 107, 196);
-  color: rgb(255, 255, 255);
-  border: 1.2px solid rgb(255, 0, 0);
-}
+
 .parking {
   width: 100px;
   height: 35px;
   margin: 8px 0px 8px 10px;
+}
+.property-type-dropdown {
+  width: 150px;
 }
 .more-popup {
   width: 238px;
@@ -353,6 +329,28 @@ footer {
 .more-popup label {
   font-weight: 600;
   margin: 0 8px 10px 10px;
+}
+.more-popup p {
+  font-size: 11px;
+  color: red;
+  position: relative;
+  top: -9px;
+  left: 10px;
+}
+.more-wrapper .flex-size {
+  margin-bottom: -26px;
+  margin-top: 10px;
+}
+.more-wrapper .flex-size > select {
+  margin: -5px 0px 0px -5px;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  border: none;
+  background-color: rgb(196, 195, 195);
+  outline: none;
+  color: rgb(255, 0, 0);
+  width: 70px;
 }
 .popup-img {
   width: 65px;
@@ -634,126 +632,7 @@ section > p,
   margin: 0px 0px 0px 0px;
 }
 /*-------------------------------------------------meetingRequest---------------------------------------------*/
-.meeting-request-wrapper {
-  position: absolute;
-  z-index: 1;
-  top: 10vh;
-  left: 23%;
-}
 
-.close-btn-wrapper > a {
-  position: absolute;
-  right: 0px;
-  padding: 4px 1px 9px 1px;
-  text-align: center;
-  font: 16px/14px Tahoma, Verdana, sans-serif;
-  color: #000000;
-  text-decoration: none;
-  border: 1px solid red;
-  font-size: 30px;
-  z-index: 2;
-  background-color: white;
-}
-
-.close-btn-wrapper > a:active {
-  transform: scale(0.9, 0.9);
-}
-.close-btn-wrapper > a:hover {
-  font-weight: bold;
-  font-size: 28px;
-  color: #ff0000;
-}
-.meeting-request {
-  width: 45vw;
-  background: rgb(255, 255, 255);
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid black;
-}
-.meeting-card-wrapper {
-  width: 60%;
-}
-.request-wrapper {
-  width: 40%;
-  height: 500px;
-  color: #fff;
-  background: rgb(0, 0, 0);
-  padding: 20px;
-}
-.request-wrapper > p {
-  padding: 20px;
-}
-.request-wrapper > div > button {
-  padding: 7px 25px;
-  margin: 20px 33%;
-  font-size: 16px;
-  font-weight: 600;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-}
-.request-wrapper > div > button:hover {
-  background: #ff0000;
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-}
-.request-wrapper > div > button:active {
-  color: rgb(51, 255, 0);
-  transform: scale(0.9, 0.9);
-}
-.meeting-card-wrapper > form {
-  margin-top: 30px;
-  padding-left: 30px;
-}
-.date {
-  height: 30px;
-  width: 200px;
-  padding: 15px;
-  margin: 10px 17%;
-  font-size: 17px;
-  border: 1px solid black;
-  font-weight: 600;
-}
-
-.time {
-  height: 30px;
-  width: 200px;
-  padding: 15px;
-  margin: 10px 17%;
-  font-size: 17px;
-  border: 1px solid black;
-  font-weight: 600;
-}
-.meeting-card-wrapper > form > button {
-  padding: 7px 20px;
-  margin-top: 15px;
-  cursor: pointer;
-  margin-left: 30%;
-  color: #fff;
-  background-color: #000;
-  border: none;
-  outline: none;
-  font-weight: 600;
-}
-.meeting-card-wrapper > form > button:active {
-  transform: scale(0.9, 0.9);
-}
-.meeting-card-wrapper > button {
-  color: #fff;
-  background-color: #000;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  padding: 6px 10px;
-}
-.meeting-card-wrapper > button:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 0, 0);
-}
-.meeting-card-wrapper > button:active {
-  transform: scale(0.9, 0.9);
-}
 /*---------------------------------------------Place Bid----------------------------------*/
 .place-bid-wrapper {
   background-color: rgb(250, 250, 250);
@@ -812,44 +691,31 @@ section > p,
 .place-bid-wrapper > form > button:hover {
   background: red;
 }
+
+.close-btn-wrapper > a {
+  position: absolute;
+  right: 0px;
+  padding: 4px 1px 9px 1px;
+  text-align: center;
+  font: 16px/14px Tahoma, Verdana, sans-serif;
+  color: #000000;
+  text-decoration: none;
+  border: 1px solid red;
+  font-size: 30px;
+  z-index: 2;
+  background-color: white;
+}
+
+.close-btn-wrapper > a:active {
+  transform: scale(0.9, 0.9);
+}
+.close-btn-wrapper > a:hover {
+  font-weight: bold;
+  font-size: 28px;
+  color: #ff0000;
+}
 /*-----------------------------------------------------Contact----------------------------------------*/
 
-.outer-contact-wrapper {
-  position: absolute;
-  z-index: 1;
-  top: 10vh;
-  left: 23%;
-}
-.place-contact-wrapper {
-  width: 360px;
-}
-.contact-wrapper {
-  background: rgb(255, 255, 255);
-  display: flex;
-  flex-wrap: wrap;
-}
-.contact-wrapper > div > form > textarea {
-  height: 120px;
-  width: 260px;
-  text-align: justify;
-}
-.contact-detail {
-  background-color: #000;
-  color: #fff;
-  width: 240px;
-}
-.contact-detail > h2 {
-  margin: 18px 0px 20px 15px;
-}
-.contact-detail > p {
-  margin: 20px;
-  margin-bottom: 50px;
-  text-align: justify;
-}
-.contact-detail > span {
-  margin: 20px;
-  font-size: 22px;
-}
 /*----------------------------------------Image Popup------------------------------------*/
 .image-popup-wrapper {
   position: absolute;
@@ -924,9 +790,21 @@ section > p,
   padding: 5px 5px;
 }
 .input-element:focus {
+  border-bottom: 2px solid rgb(39, 201, 24);
+  box-shadow: 0px 0px 15px -7px rgb(39, 201, 24);
+  color: rgb(0, 0, 0);
+  transition: 0.3s ease;
+}
+.invalid {
   border-bottom: 2px solid rgb(255, 0, 0);
-  box-shadow: 0px 0px 15px -7px red;
-  color: red;
+  box-shadow: 0px 0px 15px -7px rgb(255, 0, 0);
+  color: rgb(0, 0, 0);
+  transition: 0.3s ease;
+}
+.invalid:focus {
+  border-bottom: 2px solid rgb(255, 0, 0);
+  box-shadow: 0px 0px 15px -7px rgb(255, 0, 0);
+  color: rgb(0, 0, 0);
   transition: 0.3s ease;
 }
 .checkbox-element {
@@ -1031,6 +909,7 @@ select:hover {
   position: relative;
   top: -6px;
 }
+
 #no-acount {
   font-size: 15px;
   color: red;
@@ -1116,8 +995,8 @@ select:hover {
   font-weight: 700;
 }
 .show {
-  width: 300px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 .list-page {
   background-color: rgb(156, 156, 156);
@@ -1439,7 +1318,6 @@ select:hover {
     margin-top: 8px;
     width: 70vw;
   }
-
   .adDetail {
     display: block;
   }
@@ -1456,31 +1334,14 @@ select:hover {
   section:nth-child(odd) {
     padding: 10px 120px;
   }
-  .outer-contact-wrapper {
-    position: fixed;
-  }
-  .meeting-request {
-    flex-wrap: wrap;
-  }
   .outer-Bid-wrapper {
     position: fixed;
     width: 39%;
   }
-  .meeting-request {
-    width: 560px;
-  }
-  .meeting-request-wrapper {
-    position: fixed;
-  }
   .meeting-card-wrapper {
     width: 300px;
   }
-  .request-wrapper {
-    width: 250px;
-  }
-  .request-wrapper > div > button {
-    margin: 20px 22%;
-  }
+
   /*--------------------------------------------agent home----------------------------*/
   .listing textarea {
     width: 95%;
@@ -1497,12 +1358,6 @@ select:hover {
 @media (max-width: 900px) {
   section:nth-child(odd) {
     padding: 10px 20px;
-  }
-  .outer-contact-wrapper {
-    left: 10%;
-  }
-  .meeting-request-wrapper {
-    left: 10%;
   }
 }
 /*--------------------------------------800px----------------------------------*/
@@ -1558,37 +1413,12 @@ select:hover {
   .map {
     height: 87.6vh;
   }
-  .outer-contact-wrapper {
-    width: 360px;
-    top: 0vh;
-    left: 25%;
-  }
-  .contact-detail {
-    width: 360px;
-  }
-  .contact-detail > p {
-    margin: 0px 10px 10px 10px;
-  }
-  .contact-detail > h2 {
-    margin: 10px 0px 10px 15px;
-  }
   .place-bid-wrapper > h2 {
     margin: 10px auto;
-  }
-  .meeting-request-wrapper {
-    top: 0vh;
-    left: 25%;
-  }
-  .meeting-request {
-    width: 360px;
   }
   .meeting-card-wrapper {
     height: 280px;
     width: 360px;
-  }
-  .request-wrapper {
-    width: 360px;
-    height: 210px;
   }
 }
 /*--------------------------------------650px----------------------------------*/
@@ -1619,15 +1449,9 @@ select:hover {
   .contact-icon-margin {
     margin-left: 20px;
   }
-  .outer-contact-wrapper {
-    left: 0%;
-  }
   .outer-Bid-wrapper {
     left: 0px;
     width: 85%;
-  }
-  .meeting-request-wrapper {
-    left: 5%;
   }
   .profile-info-card img {
     left: 33%;
@@ -1651,15 +1475,20 @@ select:hover {
 /*--------------------------------------360px----------------------------------*/
 
 @media (max-width: 360px) {
-  .outer-contact-wrapper {
-    position: absolute;
-    left: 0%;
-  }
   .outer-Bid-wrapper {
     width: 100%;
   }
-  .meeting-request-wrapper {
-    position: absolute;
-    left: 0%;
-  }
+}
+#mapid {
+  height: 180px;
+}
+.marker-cluster-custom {
+  background: #9370db;
+  border: 3px solid #ededed;
+  border-radius: 50%;
+  color: #ededed;
+  height: 40px;
+  line-height: 37px;
+  text-align: center;
+  width: 40px;
 }

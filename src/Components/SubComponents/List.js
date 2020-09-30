@@ -9,7 +9,7 @@ const list = (props) => {
       <div className="show">
         <button>Update</button>
         <button onClick={props.deleteBtnclick}>Delete</button>
-        <button onClick={props.bidBtnclick}>Bid List</button>
+        <button onClick={props.bidBtnclick}>Bids</button>
       </div>
     );
   }
@@ -58,6 +58,7 @@ const list = (props) => {
         overlayClassName="overlay"
         isOpen={true}
         onRequestClose={props.deleteBtnclick}
+        ariaHideApp={false}
       >
         <h2>Are You Shore You Want To DELETE This Post!</h2>
         <h4>This Will Delete It Permanently</h4>

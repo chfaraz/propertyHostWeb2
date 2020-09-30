@@ -10,7 +10,7 @@ const meetingDetail = (props) => {
         <br />
         <label>From</label>
         <br />
-        <select>
+        <select name="dayFrom" onChange={props.changed}>
           <option>Monday</option>
           <option>Tuesday</option>
           <option>Wednesday</option>
@@ -22,7 +22,7 @@ const meetingDetail = (props) => {
         <br />
         <label>Too</label>
         <br />
-        <select>
+        <select name="dayToo" onChange={props.changed}>
           <option>Monday</option>
           <option>Tuesday</option>
           <option>Wednesday</option>
@@ -34,8 +34,26 @@ const meetingDetail = (props) => {
         <br />
         <h4>Available Time</h4>
         <br />
-        <Input inputtype="input" type="time" name="from" label="From" />
-        <Input inputtype="input" type="time" name="too" label="Too" />
+        <Input
+          inputtype="input"
+          type="time"
+          label="From"
+          name="timeFrom"
+          onChange={props.changed}
+          className={
+            props.error.timeFrom ? "invalid input-element" : "input-element"
+          }
+        />
+        <Input
+          inputtype="input"
+          type="time"
+          label="Too"
+          name="timeToo"
+          onChange={props.changed}
+          className={
+            props.error.timeToo ? "invalid input-element" : "input-element"
+          }
+        />
       </form>
       <div className="next-btn">
         <button onClick={props.click}>Next</button>

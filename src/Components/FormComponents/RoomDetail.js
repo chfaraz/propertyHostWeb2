@@ -8,28 +8,60 @@ const roomsDetail = (props) => {
         <Input
           inputtype="input"
           type="number"
-          name="bedrooms"
+          name="bedRooms"
           label="Bed Rooms"
+          onChange={props.changed}
+          className={
+            props.error.bedRooms ? "invalid input-element" : "input-element"
+          }
         />
         <Input
           inputtype="input"
           type="number"
-          name="bathrooms"
+          name="bathRooms"
           label="Bath Rooms"
+          onChange={props.changed}
+          className={
+            props.error.bathRooms ? "invalid input-element" : "input-element"
+          }
         />
         <Input
           inputtype="input"
           type="number"
-          name="parkingspace"
+          name="parkingSpace"
           label="Parking Space"
+          onChange={props.changed}
+          className={
+            props.error.parkingSpace ? "invalid input-element" : "input-element"
+          }
         />
-        <Input inputtype="input" type="number" name="floors" label="Floors" />
-        <Input inputtype="input" type="text" name="flooring" label="Flooring" />
+        <Input
+          inputtype="input"
+          type="number"
+          name="floors"
+          label="Floors"
+          onChange={props.changed}
+          className={
+            props.error.floors ? "invalid input-element" : "input-element"
+          }
+        />
+        <Input
+          inputtype="input"
+          type="text"
+          name="flooring"
+          label="Flooring"
+          placeholder="e.g. Marbel, Tyle, Wood"
+          onChange={props.changed}
+          className={
+            props.error.flooring ? "invalid input-element" : "input-element"
+          }
+        />
         <Input
           inputtype="checkBox"
           type="checkbox"
           name="basement"
           checkboxlabel="Basement"
+          onChange={props.changed}
         />
       </form>
 
